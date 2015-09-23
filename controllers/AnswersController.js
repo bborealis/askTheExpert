@@ -2,8 +2,8 @@ askExpert.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, Q
   $scope.question = UtilitiesFactory.findById(QuestionsFactory.questions, $stateParams.questionId);
 
   $scope.addAnswer = function() {
-    $scope.question.answers.push({ answer: $scope.answerInput, rating: 0, upvote: 0, comments: [] });
-    console.log($scope.question.answers);
+    $scope.question.answer = ({ answer: $scope.answerInput, rating: 0, upvote: 0, comments: [] });
+    console.log($scope.question.answer);
     $scope.answerInput = null;
   }
 });

@@ -15,11 +15,23 @@
 </div>
 
 <div ng-show="questions.length">
-  <h3>Here are the questions:</h3>
+  <h3>Unanswered questions:</h3>
     <ul>
-      <li ng-repeat= "item in questions">
+      <li ng-repeat= "item in questions | filter:{answer:''}">
         <a ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
+
       </li>
     </ul>
 </div>
+
+<div>
+  <h3>Answered questions:</h3>
+    <ul>
+      <li ng-repeat= "item in questions | filter:{answer:'!'}">
+
+        <a ng-show="item.answer" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
+      </li>
+    </ul>
+</div>
+
 <div ui-view></div>
