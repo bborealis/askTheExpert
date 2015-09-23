@@ -12,26 +12,34 @@
     </div>
     <button type="submit" class="btn btn-default">Ask</button>
   </form>
+
+  <!-- <div ng-show="QuestionsFactory.checkUnanswered()"> -->
+  <div ng-show="questions.length">
+    <h3>Unanswered questions:</h3>
+      <ul>
+        <li ng-repeat= "item in questions | filter:{answer:''}">
+          <a ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
+        </li>
+      </ul>
+  </div>
+
+  <div ng-show="questions.length">
+    <h3>Answered questions:</h3>
+      <ul>
+        <li ng-repeat= "item in questions | filter:{answer:'!'} | filter:{answer:{approved:'false'}}">
+          <a ng-show="item.answer" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
+        </li>
+      </ul>
+  </div>
+
+  <div ng-show="questions.length">
+    <h3>Approved answered questions:</h3>
+      <ul>
+        <li ng-repeat= "item in questions | filter:{answer:{approved:'true'}}">
+
+          <a ng-show="item.answer" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
+        </li>
+      </ul>
+  </div>
+  <div ui-view></div>
 </div>
-
-<div ng-show="questions.length">
-  <h3>Unanswered questions:</h3>
-    <ul>
-      <li ng-repeat= "item in questions | filter:{answer:''}">
-        <a ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
-
-      </li>
-    </ul>
-</div>
-
-<div>
-  <h3>Answered questions:</h3>
-    <ul>
-      <li ng-repeat= "item in questions | filter:{answer:'!'}">
-
-        <a ng-show="item.answer" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
-      </li>
-    </ul>
-</div>
-
-<div ui-view></div>
