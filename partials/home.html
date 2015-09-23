@@ -1,3 +1,7 @@
+<form action="index.html">
+  <button type="submit">Home</button>
+</form>
+
 <h1>Welcome to Ask the Expert</h1>
 
 <div class="col-md-4">
@@ -14,7 +18,9 @@
   <h1>Here are the questions:</h1>
     <ul>
       <li ng-repeat= "item in questions">
-        {{ item.question }}
+        <a ui-sref='home.answers({ questionId: item.id })'>{{ item.question }}</a>
       </li>
     </ul>
 </div>
+
+<div ui-view></div>
