@@ -6,7 +6,7 @@
 
 ## Description
 
-_App that allows a user to create questions, and have an expert answer them.  Users can approve, rate, and upvote answers.  Answers with the most upvotes are listed first.  Users can search and comment on answers.  Experts can filter previously-answered questions so they can view the unanswered questions. _
+_App that allows a user to create questions, and have an expert answer them.  Users can approve, rate, and upvote answers.  Answers with the most upvotes are listed first.  Users can search and comment on answers.  Experts can filter previously-answered questions so they can view the unanswered questions._
 
 ## Setup
 
