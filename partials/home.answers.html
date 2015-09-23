@@ -1,17 +1,18 @@
-<div ng-show="home.answers.length">
-  <ul>
-    <li ng-repeat="item in home.answers">
+
+<div ng-show="question.answers.length">
+  <h2>Answers for {{ question.text }}</h2>
+    <p ng-repeat="item in question.answers">
       {{ item.answer }}
-    </li>
-  </ul>
+    </p>
 </div>
 
 <div>
-  <h2>Add an answer to {{ question.question }}</h2>
-  <!-- <form ng-submit="addStudent()" class="form-inline" role="form">
-    <div class="form-group">
-      <input type="text" ng-model="studentName" class="form-control" placeholder="Enter the student's name">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form> -->
+    <h4>Add an answer to {{ question.text }}</h4>
+    <form ng-submit="addAnswer()" class="form-inline" role="form">
+      <div class="form-group">
+        <input type="text" ng-model="answerInput" class="form-control" placeholder="Enter Answer">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
 </div>

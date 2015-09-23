@@ -15,12 +15,11 @@
 </div>
 
 <div ng-show="questions.length">
-  <h1>Here are the questions:</h1>
+  <h3>Here are the questions:</h3>
     <ul>
       <li ng-repeat= "item in questions">
-        <a ui-sref='home.answers({ questionId: item.id })'>{{ item.question }}</a>
+        <a ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
       </li>
     </ul>
 </div>
-
 <div ui-view></div>
