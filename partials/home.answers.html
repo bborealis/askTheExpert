@@ -1,6 +1,13 @@
 
-<div ng-show="question.answer">
+<!-- <div ng-show="question.answer"> -->
   <h4>Answer for {{ question.text }}</h4>
+  <ul>
+    <li ng-repeat= "item in question.answers track by $index">
+      {{ item.answer }}
+  </ul>
+
+
+
   <p> {{question.answer.answer}}</p>
   <p> User rating: {{question.answer.rating}}</p>
 

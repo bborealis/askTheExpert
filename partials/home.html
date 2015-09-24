@@ -21,10 +21,9 @@
   </form>
 
   <div ng-show="QuestionsFactory.checkUnanswered()">
-  <!-- <div ng-show="questions.length"> -->
     <h3>Unanswered questions:</h3>
       <ul>
-        <li ng-repeat= "item in questions | filter:{answer:''}">
+        <li ng-repeat= "item in questions | filter:{answered:false}">
           <a ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
         </li>
       </ul>
@@ -33,8 +32,8 @@
   <div ng-show="QuestionsFactory.checkAnswered()">
     <h3>Answered questions:</h3>
       <ul>
-        <li ng-repeat= "item in questions | filter:{answer:'!'} | filter:{answer:{approved:'false'}}">
-          <a ng-show="item.answer" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
+        <li ng-repeat= "item in questions | filter:{answered:true}">
+          <a ng-show="item.answers" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
         </li>
       </ul>
   </div>
@@ -42,7 +41,7 @@
   <div ng-show="QuestionsFactory.checkApprovedAnswer()">
     <h3>Approved answered questions:</h3>
       <ul>
-        <li ng-repeat= "item in questions | filter:{answer:{approved:'true'}} | filter:query">
+        <li ng-repeat= "item in questions | filter:{$:{approved:'true'}} | filter:query">
 
           <a ng-show="item.answer" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
         </li>
