@@ -2,7 +2,18 @@
 <div ng-show="question.answer">
   <h4>Answer for {{ question.text }}</h4>
   <p> {{question.answer.answer}}</p>
+  <p> User rating: {{question.answer.rating}}</p>
   <form ng-hide="question.answer.approved" ng-submit="approveAnswer()" class="form-inline" role="form">
+    Answer Score
+    <select ng-model="ratingInput" required>
+      <option value="">Please select</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <br>
     <button type="submit" class="btn btn-default">Approve Answer</button>
   </form>
   <form ng-hide="question.answer.approved" ng-submit="question.answer = ''" class="form-inline" role="form">
