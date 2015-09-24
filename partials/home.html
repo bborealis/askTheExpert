@@ -13,6 +13,13 @@
     <button type="submit" class="btn btn-default">Ask</button>
   </form>
 
+  <h4>Search for a question</h4>
+  <form class="form-inline" role="form">
+    <div class="form-group">
+      <input ng-model="query" type="text" class="form-control" placeholder="Search">
+    </div>
+  </form>
+
   <div ng-show="QuestionsFactory.checkUnanswered()">
   <!-- <div ng-show="questions.length"> -->
     <h3>Unanswered questions:</h3>
@@ -35,7 +42,7 @@
   <div ng-show="QuestionsFactory.checkApprovedAnswer()">
     <h3>Approved answered questions:</h3>
       <ul>
-        <li ng-repeat= "item in questions | filter:{answer:{approved:'true'}}">
+        <li ng-repeat= "item in questions | filter:{answer:{approved:'true'}} | filter:query">
 
           <a ng-show="item.answer" ui-sref='home.answers({ questionId: item.id })'>{{ item.text }}</a>
         </li>
