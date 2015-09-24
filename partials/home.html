@@ -13,8 +13,8 @@
     <button type="submit" class="btn btn-default">Ask</button>
   </form>
 
-  <!-- <div ng-show="QuestionsFactory.checkUnanswered()"> -->
-  <div ng-show="questions.length">
+  <div ng-show="QuestionsFactory.checkUnanswered()">
+  <!-- <div ng-show="questions.length"> -->
     <h3>Unanswered questions:</h3>
       <ul>
         <li ng-repeat= "item in questions | filter:{answer:''}">
@@ -23,7 +23,7 @@
       </ul>
   </div>
 
-  <div ng-show="questions.length">
+  <div ng-show="QuestionsFactory.checkAnswered()">
     <h3>Answered questions:</h3>
       <ul>
         <li ng-repeat= "item in questions | filter:{answer:'!'} | filter:{answer:{approved:'false'}}">
@@ -32,7 +32,7 @@
       </ul>
   </div>
 
-  <div ng-show="questions.length">
+  <div ng-show="QuestionsFactory.checkApprovedAnswer()">
     <h3>Approved answered questions:</h3>
       <ul>
         <li ng-repeat= "item in questions | filter:{answer:{approved:'true'}}">

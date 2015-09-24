@@ -7,11 +7,39 @@ askExpert.factory('QuestionsFactory', function QuestionsFactory() {
   };
   factory.checkUnanswered = function() {
     for(var i = 0; i < factory.questions.length; i++) {
-      if(factory.questions[i].answer == "") {
+      if(!(factory.questions[i].answer.answer)) {
         return true;
       }
-      return false;
     }
+    return false;
   };
+  factory.checkAnswered = function() {
+    for(var i = 0; i < factory.questions.length; i++) {
+      if(factory.questions[i].answer.answer) {
+        if(factory.questions[i].answer.approved == false) {
+        return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  factory.checkApprovedAnswer = function() {
+    for(var i = 0; i < factory.questions.length; i++) {
+      if(factory.questions[i].answer.answer) {
+        if(factory.questions[i].answer.approved == true) {
+        return true;
+        }
+      }
+    }
+    return false;
+  };
+
+
+
+
+
     return factory;
+
+
 });
