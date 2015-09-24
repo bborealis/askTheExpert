@@ -3,6 +3,21 @@
   <h4>Answer for {{ question.text }}</h4>
   <p> {{question.answer.answer}}</p>
   <p> User rating: {{question.answer.rating}}</p>
+
+  <ul>
+    <li ng-repeat= "item in question.answer.comments track by $index">
+      {{ item }}
+    </li>
+  </ul>
+
+  <form ng-show="question.answer.approved" ng-submit="addComment()">
+    <input type="text" ng-model="commentInput" class="form-control" placeholder="Enter Comments" required>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+
+
+
   <form ng-hide="question.answer.approved" ng-submit="approveAnswer()" class="form-inline" role="form">
     Answer Score
     <select ng-model="ratingInput" required>

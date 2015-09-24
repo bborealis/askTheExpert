@@ -11,4 +11,10 @@ askExpert.controller('AnswersCtrl', function AnswersCtrl($scope, $stateParams, Q
     $scope.question.answer.rating = $scope.ratingInput;
     console.log($scope.question.answer.rating);
   }
+
+  $scope.addComment = function() {
+    $scope.question.answer.comments[$scope.question.answer.comments.length] = $scope.commentInput;
+    $scope.commentInput = null;
+  }
+
 });
